@@ -8,6 +8,6 @@ PROJECT_URLS = {
     "Coverage": "https://coveralls.io/github/robertmrk/aiocometd",
     "Docs": "http://aiocometd.readthedocs.io/"
 }
-VERSION = "0.5.5"
+VERSION = "0.5.6"
 AUTHOR = "Benton Snyder"
 AUTHOR_EMAIL = "benton@bensnyde.me"
