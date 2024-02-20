@@ -1,41 +1,7 @@
-aiocometd
+aiocometd-ng
 =========
 
-.. image:: https://badge.fury.io/py/aiocometd.svg
-    :target: https://badge.fury.io/py/aiocometd
-    :alt: PyPI package
-
-.. image:: https://readthedocs.org/projects/aiocometd/badge/?version=latest
-    :target: http://aiocometd.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
-
-.. image:: https://travis-ci.org/robertmrk/aiocometd.svg?branch=develop
-    :target: https://travis-ci.org/robertmrk/aiocometd
-    :alt: Build status
-
-.. image:: https://coveralls.io/repos/github/robertmrk/aiocometd/badge.svg
-    :target: https://coveralls.io/github/robertmrk/aiocometd
-    :alt: Coverage
-
-.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
-    :target: https://opensource.org/licenses/MIT
-    :alt: MIT license
-
-aiocometd is a CometD_ client built using asyncio_, implementing the Bayeux_
-protocol.
-
-CometD_ is a scalable WebSocket and HTTP based event and message routing bus.
-CometD_ makes use of WebSocket and HTTP push technologies known as Comet_ to
-provide low-latency data from the server to browsers and client applications.
-
-Features
---------
-
-- Supported transports:
-   - ``long-polling``
-   - ``websocket``
-- Automatic reconnection after network failures
-- Extensions
+aicometd-ng is a Python 3.10+ compatible fork of https://github.com/robertmrk/aiocometd
 
 Usage
 -----
@@ -76,12 +42,7 @@ Usage
                         print(f"{data['user']}: {data['chat']}")
 
     if __name__ == "__main__":
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(chat())
-
-For more detailed usage examples take a look at the
-`command line chat example <cli_example_>`_ or for a more complex example with
-a GUI check out the aiocometd-chat-demo_.
+        asyncio.run(chat())
 
 Documentation
 -------------
@@ -93,15 +54,16 @@ Install
 
 .. code-block:: bash
 
-    pip install aiocometd
+    pip install aiocometd-ng
 
 Requirements
 ------------
 
-- Python 3.6+
+- Python 3.10+
 - aiohttp_
 
 .. _aiohttp: https://github.com/aio-libs/aiohttp/
+.. _aiocometd: https://github.com/robertmrk/aiocometd
 .. _CometD: https://cometd.org/
 .. _Comet: https://en.wikipedia.org/wiki/Comet_(programming)
 .. _asyncio: https://docs.python.org/3/library/asyncio.html
