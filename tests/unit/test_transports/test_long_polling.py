@@ -2,15 +2,16 @@ from asynctest import TestCase, mock
 
 from aiohttp import client_exceptions
 
-from aiocometd.transports.long_polling import LongPollingTransport
-from aiocometd.constants import ConnectionType
-from aiocometd.exceptions import TransportError
+from aiocometd_ng.transports.long_polling import LongPollingTransport
+from aiocometd_ng.constants import ConnectionType
+from aiocometd_ng.exceptions import TransportError
 
 
 class TestLongPollingTransport(TestCase):
     def setUp(self):
         self.transport = LongPollingTransport(url="example.com/cometd",
                                               incoming_queue=None,
+                                              http_session=None,
                                               loop=None)
 
     def test_connection_type(self):
@@ -28,8 +29,7 @@ class TestLongPollingTransport(TestCase):
         response_mock.headers = object()
         session = mock.MagicMock()
         session.post = mock.CoroutineMock(return_value=response_mock)
-        self.transport._get_http_session = \
-            mock.CoroutineMock(return_value=session)
+        self.transport._http_session = session
         self.transport._http_semaphore = mock.MagicMock()
         payload = [object(), object()]
         self.transport.ssl = object()
@@ -65,8 +65,7 @@ class TestLongPollingTransport(TestCase):
         session = mock.MagicMock()
         post_exception = client_exceptions.ClientError("client error")
         session.post = mock.CoroutineMock(side_effect=post_exception)
-        self.transport._get_http_session = \
-            mock.CoroutineMock(return_value=session)
+        self.transport._http_session = session
         self.transport._http_semaphore = mock.MagicMock()
         payload = [object(), object()]
         self.transport.ssl = object()
@@ -103,8 +102,7 @@ class TestLongPollingTransport(TestCase):
         response_mock.headers = object()
         session = mock.MagicMock()
         session.post = mock.CoroutineMock(return_value=response_mock)
-        self.transport._get_http_session = \
-            mock.CoroutineMock(return_value=session)
+        self.transport._http_session = session
         self.transport._http_semaphore = mock.MagicMock()
         payload = [object(), object()]
         self.transport.ssl = object()
