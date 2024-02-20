@@ -13,41 +13,22 @@ Usage
     from aiocometd import Client
 
     async def chat():
-        nickname = "John"
 
         # connect to the server
         async with Client("http://example.com/cometd") as client:
 
-                # subscribe to channels to receive chat messages and
-                # notifications about new members
+                # subscribe to channels
                 await client.subscribe("/chat/demo")
                 await client.subscribe("/members/demo")
 
-                # send initial message
-                await client.publish("/chat/demo", {
-                    "user": nickname,
-                    "membership": "join",
-                    "chat": nickname + " has joined"
-                })
-                # add the user to the chat room's members
-                await client.publish("/service/members", {
-                    "user": nickname,
-                    "room": "/chat/demo"
-                })
-
                 # listen for incoming messages
                 async for message in client:
-                    if message["channel"] == "/chat/demo":
-                        data = message["data"]
-                        print(f"{data['user']}: {data['chat']}")
+                    topic = message["channel"]
+                    data = message["data"]
+                    print(f"{topic}: {data}")
 
     if __name__ == "__main__":
         asyncio.run(chat())
-
-Documentation
--------------
-
-https://aiocometd.readthedocs.io/
 
 Install
 -------
