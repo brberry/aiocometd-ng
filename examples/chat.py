@@ -5,8 +5,8 @@ from typing import Dict, Any
 
 from aioconsole import ainput  # type: ignore
 
-from aiocometd import Client, ConnectionType
-from aiocometd.exceptions import AiocometdException
+from aiocometd_ng import Client, ConnectionType
+from aiocometd_ng.exceptions import AiocometdException
 
 
 async def chat_client(url: str, nickname: str,

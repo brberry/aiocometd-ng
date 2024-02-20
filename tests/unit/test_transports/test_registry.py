@@ -1,9 +1,9 @@
 from asynctest import TestCase, mock
 
-from aiocometd.transports.registry import create_transport, \
+from aiocometd_ng.transports.registry import create_transport, \
     register_transport, TRANSPORT_CLASSES
-from aiocometd.constants import ConnectionType
-from aiocometd.exceptions import TransportInvalidOperation
+from aiocometd_ng.constants import ConnectionType
+from aiocometd_ng.exceptions import TransportInvalidOperation
 
 
 class TestTransportFactoryFunctions(TestCase):

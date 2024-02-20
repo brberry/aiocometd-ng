@@ -2,8 +2,8 @@ import asyncio
 
 from asynctest import TestCase, TestSuite
 
-from aiocometd import Client, ConnectionType
-from aiocometd.exceptions import TransportTimeoutError
+from aiocometd_ng import Client, ConnectionType
+from aiocometd_ng.exceptions import TransportTimeoutError
 from tests.integration.helpers import DockerContainer
 
 

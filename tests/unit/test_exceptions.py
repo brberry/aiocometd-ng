@@ -1,6 +1,6 @@
 from unittest import TestCase, mock
 
-from aiocometd.exceptions import ServerError
+from aiocometd_ng.exceptions import ServerError
 
 
 class TestServerError(TestCase):

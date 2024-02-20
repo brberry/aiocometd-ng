@@ -2,10 +2,10 @@ import asyncio
 
 from asynctest import TestCase, mock
 
-from aiocometd.utils import get_error_message, get_error_code, get_error_args,\
+from aiocometd_ng.utils import get_error_message, get_error_code, get_error_args,\
     defer, is_auth_error_message, is_event_message, is_server_error_message, \
     is_matching_response
-from aiocometd.constants import MetaChannel, SERVICE_CHANNEL_PREFIX
+from aiocometd_ng.constants import MetaChannel, SERVICE_CHANNEL_PREFIX
 
 
 class TestGetErrorCode(TestCase):

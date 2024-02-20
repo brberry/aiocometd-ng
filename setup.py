@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 
 INSTALL_REQUIRES = [
-    "aiohttp>=3.1,<4.0"
+    "aiohttp>=3.1"
 ]
 TESTS_REQUIRE = [
     "asynctest>=0.12.0,<1.0.0",

@@ -1,7 +1,7 @@
 Advanced Usage
 ==============
 
-.. py:currentmodule:: aiocometd
+.. py:currentmodule:: aiocometd-ng
 
 Connection types
 ----------------
@@ -10,7 +10,7 @@ The Bayeux_ protocol used by CometD_ is a transport-independent protocol,  that
 can be carried over HTTP or over WebSocket (or other transport protocols),
 so that an application is not bound to a specific transport technology.
 
-aiocometd supports the :py:obj:`~ConnectionType.LONG_POLLING` and
+aiocometd-ng supports the :py:obj:`~ConnectionType.LONG_POLLING` and
 :py:obj:`~ConnectionType.WEBSOCKET` transports.
 
 When a client connects to a CometD_ server, a so called handshake operation is
