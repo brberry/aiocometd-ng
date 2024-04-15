@@ -1,5 +1,6 @@
 """Websocket transport class definition"""
 import asyncio
+from asyncio.exceptions import CancelledError
 import logging
 from contextlib import suppress
 from typing import Callable, Optional, AsyncContextManager, Any, Awaitable, \
@@ -257,7 +258,7 @@ class WebSocketTransport(TransportBase):
         # extract the result of the future
         try:
             result = future.result()
-        except Exception as error:  # pylint: disable=broad-except
+        except (Exception, CancelledError) as error:  # pylint: disable=broad-except
             result = error
         # clear the receive task
         self._receive_task = None
