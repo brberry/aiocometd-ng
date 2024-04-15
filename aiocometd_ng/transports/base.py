@@ -511,7 +511,7 @@ class TransportBase(Transport):  # pylint: disable=too-many-instance-attributes
                     "reconnect" in result["advice"]):
                 reconnect_advice = result["advice"]["reconnect"]
             self._state = TransportState.CONNECTED
-        except (Exception, CancelledError):  # pylint: disable=broad-except
+        except (Exception, CancelledError) as error:  # pylint: disable=broad-except
             result = error
             reconnect_timeout = self._reconnect_timeout
             if self.state != TransportState.DISCONNECTING:
